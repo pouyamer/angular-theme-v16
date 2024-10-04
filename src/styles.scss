@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+/* Create the theme */
+$my-custom-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette(mat.$indigo-palette),
+    accent: mat.define-palette(mat.$pink-palette),
+    warn: mat.define-palette(mat.$green-palette),
+    /* testing - custom palette */
+    custom: mat.define-palette(mat.$red-palette),
+  ),
+));
+
+/* Apply the theme globally */
+@include mat.all-component-themes($my-custom-theme);
