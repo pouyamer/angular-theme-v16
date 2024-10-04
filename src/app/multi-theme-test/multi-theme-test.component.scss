@@ -1,8 +1,23 @@
-@use 'sass:map';
+@use "sass:map";
 @use '@angular/material' as mat;
 
-p {
-  font-size: 48px;
-  background-color: black;
-  color: pink;
+@import "../../styles.scss";
+
+
+$theme-config: mat.get-color-config($theme);
+
+$primary-palette: map.get(
+  $theme-config, "primary"
+);
+
+.btn {
+
+
+  color: mat.get-color-from-palette(
+    $primary-palette, 500
+  );
+
+  background-color: mat.get-color-from-palette(
+    $primary-palette, 300
+  );
 }

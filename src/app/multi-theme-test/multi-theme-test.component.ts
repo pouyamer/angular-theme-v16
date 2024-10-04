@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-multi-theme-test',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class MultiThemeTestComponent {
 
+  constructor(private themeService: ThemeService) {
+
+  }
+
+  protected changeTheme(theme: string) {
+    this.themeService.changeTheme(theme);
+  }
 }

@@ -1,0 +1,8 @@
+@use '@angular/material' as mat;
+
+$theme4: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette(mat.$blue-gray-palette),
+    accent: mat.define-palette(mat.$lime-palette),
+  ),
+));

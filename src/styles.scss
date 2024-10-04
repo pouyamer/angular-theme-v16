@@ -1,15 +1,47 @@
-@use "@angular/material" as mat;
+@use 'sass:map';
+@use '@angular/material' as mat;
 
-/* Create the theme */
-$my-custom-theme: mat.define-light-theme((
-  color: (
-    primary: mat.define-palette(mat.$indigo-palette),
-    accent: mat.define-palette(mat.$pink-palette),
-    warn: mat.define-palette(mat.$green-palette),
-    /* testing - custom palette */
-    custom: mat.define-palette(mat.$red-palette),
-  ),
-));
+@import './app/themes/theme1.scss';
+@import './app/themes/theme2.scss';
+@import './app/themes/theme3.scss';
+@import './app/themes/theme4.scss';
 
-/* Apply the theme globally */
-@include mat.all-component-themes($my-custom-theme);
+
+$theme: $theme1; // Default theme
+
+@mixin apply-theme($theme) {
+  $theme-map: (
+    theme1: $theme1,
+    theme2: $theme2,
+    theme3: $theme3,
+    theme4: $theme4
+  );
+
+  $theme: map.get(
+    $theme-map,
+    $theme
+  );
+
+}
+
+@include mat.core-theme($theme);
+
+.theme1 {
+  @include apply-theme('theme1');
+}
+
+.theme2 {
+  @include apply-theme('theme2');
+
+}
+
+.theme3 {
+  @include apply-theme('theme3');
+
+}
+
+.theme4 {
+  @include apply-theme('theme4');
+}
+
+
