@@ -1,0 +1,18 @@
+@use '@angular/material' as mat;
+
+$primary-palette: mat.define-palette(mat.$indigo-palette);
+$accent-palette: mat.define-palette(mat.$pink-palette);
+
+$daily-theme: mat.define-light-theme((
+  color: (
+    primary: $primary-palette,
+    accent: $accent-palette,
+  ),
+));
+
+@include mat.all-component-themes($daily-theme);
+
+:root {
+  --primary-color: #{mat.get-color-from-palette($primary-palette)};
+  --accent-color: #{mat.get-color-from-palette($accent-palette)};
+}
