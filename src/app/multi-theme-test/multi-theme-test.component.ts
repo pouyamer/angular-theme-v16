@@ -7,12 +7,17 @@ import { ThemeService } from '../services/theme.service';
   styleUrls: ['./multi-theme-test.component.scss']
 })
 export class MultiThemeTestComponent {
+  themeIndex: number = 1;
 
   constructor(private themeService: ThemeService) {
-
+    themeService.currentTheme$.subscribe((theme) => {
+      this.themeIndex = parseInt(theme.replace('theme', ''));
+      console.log(`theme index: ${this.themeIndex}`);
+    })
   }
 
-  protected changeTheme(theme: string) {
-    this.themeService.changeTheme(theme);
+  protected changeTheme() {
+    this.themeIndex = ((this.themeIndex + 1) % 4);
+    this.themeService.changeTheme('theme' + this.themeIndex);
   }
 }

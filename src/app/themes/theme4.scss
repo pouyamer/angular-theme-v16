@@ -6,3 +6,5 @@ $theme4: mat.define-light-theme((
     accent: mat.define-palette(mat.$lime-palette),
   ),
 ));
+
+// @include all-components-theme($theme4)

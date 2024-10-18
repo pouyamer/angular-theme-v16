@@ -1,3 +1,6 @@
 <p>multi-theme-test works!</p>
 
-<button class="theme3 btn" (click)="changeTheme('theme2')">Change theme</button>
+<button [class]="[('theme' + themeIndex), 'btn']" (click)="changeTheme()">Change
+  theme</button>
+
+<p>Theme {{themeIndex}} is selected!</p>
